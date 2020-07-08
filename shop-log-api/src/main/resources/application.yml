@@ -1,0 +1,32 @@
+server:
+  port: 8089
+mybatis-plus:
+  mapper-locations: classpath:mapper/*.xml
+  global-config:
+    db-config:
+      id-type: auto
+      table-prefix: t_
+  configuration:
+    map-underscore-to-camel-case: false
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/1906b?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8&useSSL=false
+    type: com.alibaba.druid.pool.DruidDataSource
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    druid:
+      initial-size: 100
+      max-active: 1000
+      min-idle: 5
+      max-wait: 60000
+  application:
+    name: shop-log-api
+eureka:
+  client:
+    fetch-registry: true  # false\u8868\u793A\u81EA\u5DF1\u5C31\u662F\u6CE8\u518C\u4E2D\u5FC3\u3002\u6211\u7684\u804C\u8D23\u5C31\u662F\u7EF4\u62A4\u670D\u52A1\u5B9E\u4F8B\uFF0C\u5E76\u4E0D\u9700\u8981\u53BB\u68C0\u7D22\u670D\u52A1
+    register-with-eureka: true   # false\u8868\u793A\u81EA\u5DF1\u4E0D\u9700\u8981\u5411\u6CE8\u518C\u4E2D\u5FC3\u6CE8\u518C\u81EA\u5DF1
+    service-url:
+      defaultZone: http://localhost:8099/eureka/
+  instance:
+    prefer-ip-address: true

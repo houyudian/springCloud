@@ -1,0 +1,32 @@
+server:
+  port: 8086
+mybatis-plus:
+  mapper-locations: classpath:mapper/*.xml
+  global-config:
+    db-config:
+      id-type: auto
+      table-prefix: t_
+  configuration:
+    map-underscore-to-camel-case: false
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/1906b?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8&useSSL=false
+    type: com.alibaba.druid.pool.DruidDataSource
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    druid:
+      initial-size: 100
+      max-active: 1000
+      min-idle: 5
+      max-wait: 60000
+  application:
+    name: shop-member-api
+eureka:
+  client:
+    fetch-registry: true  # false表示自己就是注册中心。我的职责就是维护服务实例，并不需要去检索服务
+    register-with-eureka: true   # false表示自己不需要向注册中心注册自己
+    service-url:
+      defaultZone: http://localhost:8099/eureka/
+  instance:
+    prefer-ip-address: true
